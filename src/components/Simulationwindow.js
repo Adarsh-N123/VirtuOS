@@ -1,6 +1,8 @@
 import React from 'react'
 import "./simulation.css"
 import "./terminal.css"
+import SJF from './simulations/SJF';
+import FCFS from './simulations/FCFS';
 function Simulationwindow(props) {
   const minimisewindow = () => {
     const updatedWindows = [...props.windows];
@@ -29,7 +31,7 @@ function Simulationwindow(props) {
   };
   
   return (
-    <div className='window' onClick={()=>{updatez()}}>
+    <div className='window' onClick={()=>{updatez()}} >
     <div className='foldbar'>
     <h4 style={{paddingRight:'30%',fontSize:'15px',fontFamily:'sans-serif'}}>{props.opt.heading}</h4>
       <div className='icons'>
@@ -40,8 +42,12 @@ function Simulationwindow(props) {
        
       
     </div>
-    <div className='foldbody'>
+    <div style={{overflowY:'scroll',height:'92.5%'}}>
+    <div className='foldbody' >
+      {props.opt.heading === "FCFS" && <FCFS />}
+      {props.opt.heading === "Simulations" &&<div><FCFS/><SJF /></div>}
 
+    </div>
     </div>
     </div>
   )

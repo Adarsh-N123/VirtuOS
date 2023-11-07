@@ -11,6 +11,7 @@ import backlock from "./back-fin1.jpg"
 // import backlock from "./backlock.jpg"
 import { Rnd } from 'react-rnd';
 import Simulationwindow from './components/Simulationwindow.js';
+import FCFS from './components/simulations/FCFS.js';
 
 function App() {
   const [isDragging, setIsDragging] = useState(false);
@@ -46,6 +47,7 @@ function App() {
     <div style={(isLoading)?{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',backgroundImage:`url(${background})`,width:'100vw',height:'100vh',backgroundRepeat:'no-repeat',backgroundAttachment:'fixed',backgroundPosition:'center',backgroundSize:'cover'}:{display:'none'}}>
       <img src="https://p3d.in/static/uploads/94995/image-db241279986.png"/>
       <img src={gear}></img>
+
       
     </div>
     <div style={(islocked)?{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',backgroundImage:`url(${background})`,width:'100vw',height:'100vh',backgroundRepeat:'no-repeat',backgroundAttachment:'fixed',backgroundPosition:'center',backgroundSize:'cover'}:{display:'none'}}>
@@ -76,7 +78,7 @@ function App() {
         x: 220,
         y: 80,
         width: 650,
-        height: 450,
+        height: 450
       }}
       minHeight={450}
       minWidth={650}
