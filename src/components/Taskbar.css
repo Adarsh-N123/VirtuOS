@@ -1,0 +1,49 @@
+.taskbar{
+    width:auto;
+    height:auto;
+    margin-bottom:20px;
+    background-color: rgb(60, 55, 55);
+    border-radius:20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items:center;
+
+}
+.icon{
+    width:50px;
+    height:50px;
+    border-radius: 20%;
+    margin:8px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.application{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:50px;
+    height:50px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top:10px;
+    border-radius: 20%;
+}
+.dot{
+    width:5px;
+    height:5px;
+    border-radius: 50%;
+    margin-left: 46%;
+    margin-top:5px;
+    background-color: rgb(0, 72, 255);
+    margin-bottom: 8px;
+    /* margin-left: 10px;
+    margin-right: 10px; */
+}
+.application:hover{
+    cursor: pointer;
+    scale:1.1;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    transition: 0.1s;
+}

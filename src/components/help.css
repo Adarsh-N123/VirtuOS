@@ -1,0 +1,8 @@
+.help{
+    position: absolute;
+    width:100vw;
+    background-color: black;
+    height: 96vh;
+    /* padding-top:-30px; */
+    overflow-y: scroll;
+}
