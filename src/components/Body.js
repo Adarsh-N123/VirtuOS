@@ -3,6 +3,8 @@ import './Body.css'
 
 function Body(props) {
   const folders = ["Music","Pictures","Videos","Documents","Downloads","Applications"]
+  const cpualgos = ["FCFS","SJF","RR","Priority Preemptive","Priority Non Preemptive","Multi-Level"];
+  const folds =  [["CPU Scheduling","https://cdn-icons-png.flaticon.com/512/8186/8186331.png"]]
   const openwindow = (folder) => {
     const updatedWindows = [...props.windows]; // Create a copy of the windows array
     for (let i = 0; i < updatedWindows.length; i++) {
@@ -38,12 +40,22 @@ function Body(props) {
   
   return (
     <div className='body' style={{overflow:'hidden'}}>
+      <div>
       {folders.map((folder) => (
                 <div key={folder.toString()} className='folder'>
                   <img src='https://images.squarespace-cdn.com/content/v1/500bd3ece4b0d820d6a34677/1356128939263-3N3I8PWSXT4EH3NROIKG/purple-folder-icon.png' onClick={()=>{openwindow(folder)}} style={{width:'70px',margin:'20px'}}></img>
                   <h3 style={{color:'white',fontSize:'13px',marginTop:'-24px'}} className='folder-name'>{folder}</h3>
                 </div>
             ))}
+          </div>
+      <div>
+      {folds.map((folder) => (
+                <div key={folder.toString()} className='folder'>
+                  <img src={folder[1]} onClick={()=>{openwindow(folder[0])}} style={{width:'68px',margin:'20px'}}></img>
+                  <h3 style={{color:'white',fontSize:'10px',marginTop:'-18px'}} className='folder-name'>{folder[0]}</h3>
+                </div>
+            ))}
+          </div>
     </div>
   )
 }

@@ -11,17 +11,18 @@ import backlock from "./back-fin1.jpg"
 // import backlock from "./backlock.jpg"
 import { Rnd } from 'react-rnd';
 import Simulationwindow from './components/Simulationwindow.js';
+import FCFS from './components/simulations/FCFS.js';
 
 function App() {
-  const [isDragging, setIsDragging] = useState(false);
+  const [isDragging, setIsDragging] = useState(true);
   const [screenopen,setscreenopen] = useState(false);
   const [name,setname] = useState('');
-  const [windows,setwindows] = useState([{heading:"Window",state:false,zi:0},{heading:"Help",state:false,zi:0},{heading:"Simulations",state:false,zi:0},{heading:"Preferences",state:false,zi:0},{heading:"Music",state:false,zi:0},{heading:"Pictures",state:false,zi:0},{heading:"Videos",state:false,zi:0},{heading:"Documents",state:false,zi:0},{heading:"Downloads",state:false,zi:0},{heading:"Applications",state:false,zi:0}]);
+  const [windows,setwindows] = useState([{heading:"Window",state:false,zi:0},{heading:"Help",state:false,zi:0},{heading:"Simulations",state:false,zi:0},{heading:"Preferences",state:false,zi:0},{heading:"Music",state:false,zi:0},{heading:"Pictures",state:false,zi:0},{heading:"Videos",state:false,zi:0},{heading:"Documents",state:false,zi:0},{heading:"Downloads",state:false,zi:0},{heading:"Applications",state:false,zi:0},{heading:"FCFS",state:false,zi:0},{heading:"SJF",state:false,zi:0},{heading:"RR",state:false,zi:0},{heading:"Priority Preemptive",state:false,zi:0},{heading:"Priority Non Preemptive",state:false,zi:0},{heading:"CPU Scheduling",state:false,zi:0}]);
   const handleDragStart = () => {
     setIsDragging(true);
   };
   const [terminalz,setterminalz] = useState(0);
-  
+  useEffect(() => {console.log("dragging changed")},[isDragging]);
 
   const handleDragStop = () => {
     setIsDragging(false);
@@ -46,6 +47,7 @@ function App() {
     <div style={(isLoading)?{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',backgroundImage:`url(${background})`,width:'100vw',height:'100vh',backgroundRepeat:'no-repeat',backgroundAttachment:'fixed',backgroundPosition:'center',backgroundSize:'cover'}:{display:'none'}}>
       <img src="https://p3d.in/static/uploads/94995/image-db241279986.png"/>
       <img src={gear}></img>
+
       
     </div>
     <div style={(islocked)?{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',backgroundImage:`url(${background})`,width:'100vw',height:'100vh',backgroundRepeat:'no-repeat',backgroundAttachment:'fixed',backgroundPosition:'center',backgroundSize:'cover'}:{display:'none'}}>
@@ -76,14 +78,14 @@ function App() {
         x: 220,
         y: 80,
         width: 650,
-        height: 450,
+        height: 450
       }}
       minHeight={450}
       minWidth={650}
       disableDragging={isDragging}
       style={(window.state)?{zIndex:`${window.zi}`,backgroundColor:'#202121',borderRadius:'10px'}:{width:'0px',height:'0px',zIndex:'-100',marginTop:'100vh',visibility:'hidden',transition:'all 0.4s ease-in-out'}}
     >
-    <Simulationwindow windows={[...windows]} setwindows={setwindows} opt={window}></Simulationwindow>
+    <Simulationwindow screenopen={screenopen} setname={setname} setscreenopen={setscreenopen} isDragging={isDragging} setIsDragging={setIsDragging}  windows={[...windows]} setwindows={setwindows} opt={window}></Simulationwindow>
     </Rnd>
     </div>
       ))
