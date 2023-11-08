@@ -81,7 +81,7 @@ function FCFS() {
             <center>
               <span className="num">{progress}</span>
               <span className="num" style={{ fontSize: '10px', marginLeft: '4px' }}>
-                TQ
+                s
               </span>
             </center>
           </p>

@@ -14,15 +14,15 @@ import Simulationwindow from './components/Simulationwindow.js';
 import FCFS from './components/simulations/FCFS.js';
 
 function App() {
-  const [isDragging, setIsDragging] = useState(false);
+  const [isDragging, setIsDragging] = useState(true);
   const [screenopen,setscreenopen] = useState(false);
   const [name,setname] = useState('');
-  const [windows,setwindows] = useState([{heading:"Window",state:false,zi:0},{heading:"Help",state:false,zi:0},{heading:"Simulations",state:false,zi:0},{heading:"Preferences",state:false,zi:0},{heading:"Music",state:false,zi:0},{heading:"Pictures",state:false,zi:0},{heading:"Videos",state:false,zi:0},{heading:"Documents",state:false,zi:0},{heading:"Downloads",state:false,zi:0},{heading:"Applications",state:false,zi:0}]);
+  const [windows,setwindows] = useState([{heading:"Window",state:false,zi:0},{heading:"Help",state:false,zi:0},{heading:"Simulations",state:false,zi:0},{heading:"Preferences",state:false,zi:0},{heading:"Music",state:false,zi:0},{heading:"Pictures",state:false,zi:0},{heading:"Videos",state:false,zi:0},{heading:"Documents",state:false,zi:0},{heading:"Downloads",state:false,zi:0},{heading:"Applications",state:false,zi:0},{heading:"FCFS",state:false,zi:0},{heading:"SJF",state:false,zi:0},{heading:"RR",state:false,zi:0},{heading:"Priority Preemptive",state:false,zi:0},{heading:"Priority Non Preemptive",state:false,zi:0},{heading:"CPU Scheduling",state:false,zi:0}]);
   const handleDragStart = () => {
     setIsDragging(true);
   };
   const [terminalz,setterminalz] = useState(0);
-  
+  useEffect(() => {console.log("dragging changed")},[isDragging]);
 
   const handleDragStop = () => {
     setIsDragging(false);
@@ -85,7 +85,7 @@ function App() {
       disableDragging={isDragging}
       style={(window.state)?{zIndex:`${window.zi}`,backgroundColor:'#202121',borderRadius:'10px'}:{width:'0px',height:'0px',zIndex:'-100',marginTop:'100vh',visibility:'hidden',transition:'all 0.4s ease-in-out'}}
     >
-    <Simulationwindow windows={[...windows]} setwindows={setwindows} opt={window}></Simulationwindow>
+    <Simulationwindow screenopen={screenopen} setname={setname} setscreenopen={setscreenopen} isDragging={isDragging} setIsDragging={setIsDragging}  windows={[...windows]} setwindows={setwindows} opt={window}></Simulationwindow>
     </Rnd>
     </div>
       ))

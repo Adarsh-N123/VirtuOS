@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import './SJF.css';
+import React, { useEffect, useState } from 'react'
+import "./priority.css"
 
-function SJFPreemptive() {
-  const initialProgress = 0;
+function Priority() {
+    const initialProgress = 0;
   const initialSimulationStarted = false;
 
   const [progress, setProgress] = useState(initialProgress);
@@ -44,7 +44,7 @@ function SJFPreemptive() {
     };
     setFCFS_data((prevData) => {
       const newData = [...prevData, newProcess];
-      newData.sort((a, b) => a.burstTime - b.burstTime); // Sort by burst time
+      newData.sort((a, b) => b.burstTime - a.burstTime); // Sort by burst time
       return newData;
     });
   };
@@ -166,7 +166,7 @@ function SJFPreemptive() {
         {processnames.map((processname, index) => (
           <div key={processname.image}>
             <img src={processname.image} className='iconproc' onClick={() => { update(processname.burstTime) }} alt={processname.burstTime}></img>
-            <center><p style={{ color: 'white', marginTop: '-2px'}}>{processname.burstTime + "s"}</p></center>
+            <center><p style={{ color: 'white', marginTop: '-2px'}}>{processname.burstTime + ":prio"}</p></center>
           </div>
         ))}
       </div>
@@ -188,6 +188,7 @@ function SJFPreemptive() {
       </div>
     </div>
   );
+  
 }
 
-export default SJFPreemptive;
+export default Priority
