@@ -18,6 +18,45 @@
     justify-content: start;
 
 }
+.gantt-chart{
+    width:90%;
+    height:50px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+}
+.process{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    height:100%;
+    border-radius: 5px;
+}
+.process-id{
+    transition: 1s;
+}
+.process-buttons{
+    width: 90%;
+    padding-top:30px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.iconproc{
+    width: 60px;
+    border-radius: 10px;
+    height: 100%;
+    cursor: pointer;
+}
+.iconproc:hover{
+    scale: 1.1;
+    transition: 0.5s;
+}
 form, input, .range__input, .range__counter-sr {
 	width: 100%;
 }

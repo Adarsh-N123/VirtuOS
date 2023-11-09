@@ -99,7 +99,7 @@ function Simulationwindow(props) {
       {cpualgos.map((folder) => (
                 <div key={folder.toString()} className='folder' style={{marginLeft:'30px'}}>
                   <img src={folder[1]} onClick={()=>{openwindow(folder[0])}} style={{width:'70px',height:'70px',margin:'20px',borderRadius:'50%'}}></img>
-                  <center><h3 style={{color:'white',fontSize:'10px',marginTop:'-14px',width:'80px'}} className='folder-name'>{folder[0]}</h3></center>
+                  <center><h3 style={{color:'white',fontSize:'10px',marginTop:'-14px',width:'80px'}} className='folder-name'>{folder[0]+".exe"}</h3></center>
                 </div>
             ))}
           </div>}
@@ -107,7 +107,7 @@ function Simulationwindow(props) {
       {dynamic_storage.map((folder) => (
                 <div key={folder.toString()} className='folder' style={{marginLeft:'30px'}}>
                   <img src={folder[1]} onClick={()=>{openwindow(folder[0])}} style={{width:'70px',height:'70px',margin:'20px',borderRadius:'10%'}}></img>
-                  <center><h3 style={{color:'white',fontSize:'10px',marginTop:'-14px',width:'80px'}} className='folder-name'>{folder[0]}</h3></center>
+                  <center><h3 style={{color:'white',fontSize:'10px',marginTop:'-14px',width:'80px'}} className='folder-name'>{folder[0]+".exe"}</h3></center>
                 </div>
             ))}
           </div>}

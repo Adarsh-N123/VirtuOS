@@ -46,7 +46,7 @@ function Taskbar(props) {
         height: 450
         
       }}
-      style={{zIndex:`${props.terminalz}`}}
+      style={{zIndex:`${(minimised)?-100:props.terminalz}`}}
       minHeight={450}
       minWidth={650} disableDragging={isdraggable} onClick={()=>{updatez()}}><Terminal isdraggable={isdraggable} setisdraggable={setisdraggable} terminalz={props.terminalz} setterminalz={props.setterminalz} updatez={updatez} minimised = {minimised} setminimised={setminimised} windows={props.windows} setwindows={props.setwindows} /></Rnd>}
                   <div className='dot' />

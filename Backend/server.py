@@ -278,6 +278,114 @@ def get_data():
         # Implement the exit command (you can add custom logic to terminate the application)
         return jsonify("Exiting the OS...")
     
+visclass = FirstFit()
+visclass1 = BestFit()
+visclass2 = WorstFit()
+visclass3 = NextFit()
+m = 10
+arr = [100,50,70,90,200,110,150,80,100,50]
+
+@app.route('/Firstfit', methods=['GET'])
+def FF():
+    global visclass
+    global m
+    global arr
+    query_parameter = request.args.get('param')
+    if query_parameter == "start":
+        visclass.reset()
+        return jsonify("FirstFit started")
+    elif query_parameter == "end":
+        visclass.reset()
+        return jsonify("FirstFit ended")
+
+@app.route('/Firstfitadd', methods=['GET'])
+def FFadd():
+    global visclass
+    global m
+    global arr
+    query_parameter = request.args.get('param')
+    query_parameter = int(query_parameter)
+    if visclass is None:
+        return jsonify(["FirstFit not started"])
+    else:
+        progress = visclass.__addnew__(query_parameter)
+        return jsonify([progress, visclass.m, visclass.blockSize])
+@app.route('/Bestfit', methods=['GET'])
+def FF1():
+    global visclass1
+    global m
+    global arr
+    query_parameter = request.args.get('param')
+    if query_parameter == "start":
+        visclass1.reset()
+        return jsonify("FirstFit started")
+    elif query_parameter == "end":
+        visclass1.reset()
+        return jsonify("FirstFit ended")
+
+@app.route('/Bestfitadd', methods=['GET'])
+def FFadd1():
+    global visclass1
+    global m
+    global arr
+    query_parameter = request.args.get('param')
+    query_parameter = int(query_parameter)
+    if visclass1 is None:
+        return jsonify(["FirstFit not started"])
+    else:
+        progress = visclass1.__addnew__(query_parameter)
+        return jsonify([progress, visclass1.m, visclass1.blockSize])
+@app.route('/Worstfit', methods=['GET'])
+def FF2():
+    global visclass2
+    global m
+    global arr
+    query_parameter = request.args.get('param')
+    if query_parameter == "start":
+        visclass2.reset()
+        return jsonify("FirstFit started")
+    elif query_parameter == "end":
+        visclass2.reset()
+        return jsonify("FirstFit ended")
+
+@app.route('/Worstfitadd', methods=['GET'])
+def FFadd2():
+    global visclass2
+    global m
+    global arr
+    query_parameter = request.args.get('param')
+    query_parameter = int(query_parameter)
+    if visclass2 is None:
+        return jsonify(["FirstFit not started"])
+    else:
+        progress = visclass2.__addnew__(query_parameter)
+        return jsonify([progress, visclass2.m, visclass2.blockSize])
+@app.route('/Nextfit', methods=['GET'])
+def FF3():
+    global visclass3
+    global m
+    global arr
+    query_parameter = request.args.get('param')
+    if query_parameter == "start":
+        visclass3.reset()
+        return jsonify("FirstFit started")
+    elif query_parameter == "end":
+        visclass3.reset()
+        return jsonify("FirstFit ended")
+
+@app.route('/Nextfitadd', methods=['GET'])
+def FFadd3():
+    global visclass3
+    global m
+    global arr
+    query_parameter = request.args.get('param')
+    query_parameter = int(query_parameter)
+    if visclass3 is None:
+        return jsonify(["FirstFit not started"])
+    else:
+        progress = visclass3.__addnew__(query_parameter)
+        return jsonify([progress, visclass3.m, visclass3.blockSize])
+
 
 if __name__ == '__main__':
     file_system = FileSystem()
