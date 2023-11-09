@@ -158,7 +158,7 @@ function Priority() {
             } : { display: 'none' }}
             key={data.name}
           >
-            &nbsp;{data.name+" "+data.burstTime+"s"}
+            &nbsp;{data.name+" "+data.burstTime+":p"}
           </span>
         ))}
       </div>

@@ -4,7 +4,7 @@ import './Body.css'
 function Body(props) {
   const folders = ["Music","Pictures","Videos","Documents","Downloads","Applications"]
   const cpualgos = ["FCFS","SJF","RR","Priority Preemptive","Priority Non Preemptive","Multi-Level"];
-  const folds =  [["CPU Scheduling","https://cdn-icons-png.flaticon.com/512/8186/8186331.png"]]
+  const folds =  [["CPU Scheduling","https://cdn-icons-png.flaticon.com/512/8186/8186331.png"],["Dynamic Storage Allocation","https://prepinstadotcom.s3.ap-south-1.amazonaws.com/wp-content/uploads/2021/10/memory-card.webp"]]
   const openwindow = (folder) => {
     const updatedWindows = [...props.windows]; // Create a copy of the windows array
     for (let i = 0; i < updatedWindows.length; i++) {
@@ -51,7 +51,7 @@ function Body(props) {
       <div>
       {folds.map((folder) => (
                 <div key={folder.toString()} className='folder'>
-                  <img src={folder[1]} onClick={()=>{openwindow(folder[0])}} style={{width:'68px',margin:'20px'}}></img>
+                  <img src={folder[1]} onClick={()=>{openwindow(folder[0])}} style={(folder[0]==="Dynamic Storage Allocation")?{width:'68px',margin:'20px',marginTop:'25px'}:{width:'68px',margin:'20px'}}></img>
                   <h3 style={{color:'white',fontSize:'10px',marginTop:'-18px'}} className='folder-name'>{folder[0]}</h3>
                 </div>
             ))}
