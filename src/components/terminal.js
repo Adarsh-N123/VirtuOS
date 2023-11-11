@@ -7,23 +7,123 @@ function Terminal(props) {
   const [inputValue, setInputValue] = useState('');
   const [terminalart, setTerminalArt] = useState([]);
   const [terminalart2, setTerminalArt2] = useState([]);
+  const paths = ['./home/Dynamic-Storage-Allocation/First-Fit.exe','./home/Dynamic-Storage-Allocation/Next-Fit.exe','./home/Dynamic-Storage-Allocation/Best-Fit.exe','./home/Dynamic-Storage-Allocation/Worst-Fit.exe','./home/CPU-Scheduling/FCFS.exe','./home/CPU-Scheduling/SJF.exe','./home/CPU-Scheduling/RR.exe','./home/CPU-Scheduling/Priority-Preemptive.exe','./home/CPU-Scheduling/Multi-Level.exe'];
+  const windnames = ['First Fit','Next Fit','Best Fit','Worst Fit','FCFS','SJF','RR','Priority Preemptive','Multi-Level'];
+  const [isrunningsim,setisrunningsim] = useState("");
+// 
+const openwindow = (folder) => {
+    const updatedWindows = [...props.windows]; // Create a copy of the windows array
+    for (let i = 0; i < updatedWindows.length; i++) {
+      if (updatedWindows[i].heading === folder) {
+        updatedWindows[i].state = true; // Update the copy
+        break;
+      }
+    }
+    props.setwindows(updatedWindows); // Update the state with the modified copy
+    updatez(folder);
+  };
+const closewindow = (folder) => {
+    const updatedWindows = [...props.windows]; // Create a copy of the windows array
+    for (let i = 0; i < updatedWindows.length; i++) {
+      if (updatedWindows[i].heading === folder) {
+        updatedWindows[i].state = false; // Update the copy
+        break;
+      }
+    }
+    props.setwindows(updatedWindows); // Update the state with the modified copy
+    updatez(folder);
+  };
+  const updatez = (folder) => {
+    const updatedWindows = [...props.windows];
 
+    var targetWindow = {};
+    for (let i=0;i<updatedWindows.length;i++){
+      if (updatedWindows[i].heading === folder) {
+        targetWindow = updatedWindows[i];
+      }
+    }  
 
+    const index = updatedWindows.indexOf(targetWindow);
 
+    if (index !== -1) {
+      // Find the maximum z-index among all windows
+      const maxZIndex = Math.max(...updatedWindows.map((window) => window.zi));
+      
+      // Set the z-index of the clicked window to be one higher than the maximum
+      updatedWindows[index].zi = maxZIndex + 1;
+      props.setwindows(updatedWindows);
+    }
+  };
+
+// 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
-      if (inputValue === 'clear') {
-        setCommands([]);
-        setResponses([]);
-        setInputValue('');
-      } else {
-        const queryParams = new URLSearchParams({
-          param: inputValue,
-        });
-        execute(queryParams);
-        setCommands([...commands, inputValue]);
-        setInputValue('');
+      if (inputValue.includes('.exe')){
+        if (isrunningsim==""){
+          if (paths.includes(inputValue)){
+                    var idte = paths.indexOf(inputValue);
+                    openwindow(windnames[idte]);
+                    setCommands([...commands, inputValue]);
+                    setResponses([...responses, 'Simulator Started']);
+                    setisrunningsim(windnames[idte]);
+                    setInputValue('');
+            
+          }else{
+            setCommands([...commands, inputValue]);
+            setInputValue('');
+            setResponses([...responses, 'Error File Not Found']);
+          }
+
+        }else{
+          setCommands([...commands, inputValue]);
+          setInputValue('');
+          setResponses([...responses, 'Error A Simulation is Already Running']);
+
+        }
+
+      }else{
+        if (inputValue==='exit'){
+          if (isrunningsim===""){
+            setCommands([...commands, inputValue]);
+            setInputValue('');
+            setResponses([...responses, 'Error No Simulation is Running']);
+          }else{
+            closewindow(isrunningsim);
+            setCommands([...commands, inputValue]);
+            setInputValue('');
+            setResponses([...responses, 'Simulation Ended']);
+            setisrunningsim("");
+          }
+
+        }else{
+        if (inputValue === 'clear') {
+          setCommands([]);
+          setResponses([]);
+          setInputValue('');
+        } else {
+          const queryParams = new URLSearchParams({
+            param: inputValue,
+          });
+          execute(queryParams);
+          setCommands([...commands, inputValue]);
+          setInputValue('');
+        }
       }
+      }
+    //   if (inputValue === './home/Dynamic-Storage-Allocation/First-Fit.exe') {
+    //     openwindow('First Fit');
+    //     setCommands([...commands, inputValue]);
+    //     setisrunningsim("First Fit");
+    //     setInputValue('');
+    //   }else if (inputValue === 'exit' && isrunningsim==="First Fit"){
+    //     closewindow('First Fit');
+    //     setisrunningsim("");
+    //     setCommands([...commands, inputValue]);
+    //     setInputValue('');
+    //   }
+    //   else{
+      
+    // }
     }
   };
   const scrollableContainer = document.getElementById('bd');

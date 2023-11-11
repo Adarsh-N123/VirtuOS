@@ -1,13 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import Nav from './components/nav.js'
-import background from './back-fin1.jpg'
+import background from './finback.jpg'
+import background1 from './fb2.jpg'
 import Body from './components/Body.js'
 import Taskbar from './components/Taskbar.js'
 import Terminal from "./components/terminal.js"
 import { useState, useEffect } from 'react';
 import gear from "./gear.svg";
-import backlock from "./back-fin1.jpg"
+import backlock from "./fb1.jpg"
 // import backlock from "./backlock.jpg"
 import { Rnd } from 'react-rnd';
 import Simulationwindow from './components/Simulationwindow.js';
@@ -44,7 +45,7 @@ function App() {
     }, 3000);
   return (
     <div style={{overflow:'hidden',height:'100vh',width:'100vw'}}>
-    <div style={(isLoading)?{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',backgroundImage:`url(${background})`,width:'100vw',height:'100vh',backgroundRepeat:'no-repeat',backgroundAttachment:'fixed',backgroundPosition:'center',backgroundSize:'cover'}:{display:'none'}}>
+    <div style={(isLoading)?{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',backgroundImage:`url(${background1})`,width:'100vw',height:'100vh',backgroundRepeat:'no-repeat',backgroundAttachment:'fixed',backgroundPosition:'center',backgroundSize:'cover'}:{display:'none'}}>
       <img src="https://p3d.in/static/uploads/94995/image-db241279986.png"/>
       <img src={gear}></img>
 
