@@ -11,6 +11,7 @@ function Terminal(props) {
   const windnames = ['First Fit','Next Fit','Best Fit','Worst Fit','FCFS','SJF','RR','Priority Preemptive','Multi-Level'];
   const [isrunningsim,setisrunningsim] = useState("");
 // 
+useEffect(()=>{props.setissim(isrunningsim)},[isrunningsim]);
 const openwindow = (folder) => {
     const updatedWindows = [...props.windows]; // Create a copy of the windows array
     for (let i = 0; i < updatedWindows.length; i++) {
@@ -58,7 +59,22 @@ const closewindow = (folder) => {
 // 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
-      if (inputValue.includes('.exe')){
+      if (inputValue.includes('create-process')){
+          if (isrunningsim!=""){
+            let lastCharacter = inputValue.charAt(inputValue.length - 1);
+
+            // Convert the last character to an integer
+            let lastCharacterAsInt = parseInt(lastCharacter, 10);
+            props.setinstpassed(lastCharacterAsInt);
+            setCommands([...commands, inputValue]);
+            setInputValue('');
+          }else{
+            setCommands([...commands, inputValue]);
+            setInputValue('');
+            setResponses([...responses, 'Any simulator is Not running to create simulation process...']);
+          }
+      }
+      else if (inputValue.includes('.exe')){
         if (isrunningsim==""){
           if (paths.includes(inputValue)){
                     var idte = paths.indexOf(inputValue);

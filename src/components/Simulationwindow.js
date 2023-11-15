@@ -87,14 +87,14 @@ function Simulationwindow(props) {
     </div>
     <div style={{overflowY:'scroll',height:'92.5%'}}>
     <div className='foldbody' >
-      {props.opt.heading === "FCFS" && <FCFS />}
-      {props.opt.heading === "SJF" &&<SJF />}
-      {props.opt.heading === "RR" &&<RoundRobin/>}
-      {props.opt.heading === "Priority Preemptive" &&<Priority/>}
-      {props.opt.heading === "First Fit" && <Firstfit />}
-      {props.opt.heading === "Next Fit" &&<Nextfit />}
-      {props.opt.heading === "Best Fit" &&<Bestfit/>}
-      {props.opt.heading === "Worst Fit" &&<Worstfit/>}
+      {props.opt.heading === "FCFS" && <FCFS issim={props.issim} setissim={props.setissim} instpassed={props.instpassed} setinstpassed={props.setinstpassed} />}
+      {props.opt.heading === "SJF" &&<SJF issim={props.issim} setissim={props.setissim} instpassed={props.instpassed} setinstpassed={props.setinstpassed}/>}
+      {props.opt.heading === "RR" &&<RoundRobin issim={props.issim} setissim={props.setissim} instpassed={props.instpassed} setinstpassed={props.setinstpassed}/>}
+      {props.opt.heading === "Priority Preemptive" &&<Priority issim={props.issim} setissim={props.setissim} instpassed={props.instpassed} setinstpassed={props.setinstpassed}/>}
+      {props.opt.heading === "First Fit" && <Firstfit issim={props.issim} setissim={props.setissim} instpassed={props.instpassed} setinstpassed={props.setinstpassed}/>}
+      {props.opt.heading === "Next Fit" &&<Nextfit issim={props.issim} setissim={props.setissim} instpassed={props.instpassed} setinstpassed={props.setinstpassed}/>}
+      {props.opt.heading === "Best Fit" &&<Bestfit issim={props.issim} setissim={props.setissim} instpassed={props.instpassed} setinstpassed={props.setinstpassed}/>}
+      {props.opt.heading === "Worst Fit" &&<Worstfit issim={props.issim} setissim={props.setissim} instpassed={props.instpassed} setinstpassed={props.setinstpassed}/>}
       {props.opt.heading === "CPU Scheduling" && <div style={{width:'90%',display:'flex',flexWrap:'wrap',alignItems:'center',justifyContent:'left'}}>
       {cpualgos.map((folder) => (
                 <div key={folder.toString()} className='folder' style={{marginLeft:'30px'}}>

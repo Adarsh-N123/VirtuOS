@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './FCFS.css';
 
-function FCFS() {
+function FCFS(props) {
   const initialProgress = 0;
   const initialSimulationStarted = false;
   
@@ -9,6 +9,28 @@ function FCFS() {
   const [simulationStarted, setSimulationStarted] = useState(initialSimulationStarted);
   const processnames = [["https://static.vecteezy.com/system/resources/previews/026/488/976/original/process-icon-in-flat-style-isolated-on-white-process-symbol-in-black-for-website-design-app-ui-simple-operation-icon-gear-illustration-vector.jpg",4],["https://static.vecteezy.com/system/resources/previews/026/488/978/non_2x/process-icon-in-flat-style-isolated-on-white-process-symbol-in-black-for-website-design-app-ui-simple-operation-icon-gear-illustration-vector.jpg",3],["https://static.vecteezy.com/system/resources/previews/026/488/997/original/process-icon-in-flat-style-isolated-on-white-process-symbol-in-black-for-website-design-app-ui-simple-operation-icon-gear-illustration-vector.jpg",5],["https://cdn-icons-png.flaticon.com/512/1136/1136419.png",2],["https://cdn-icons-png.flaticon.com/512/3862/3862949.png",1]];
   let interval;
+  useEffect(()=>{
+    if (props.instpassed!==""){
+      if (simulationStarted===false){
+        resetToDefaults();
+        setSimulationStarted(true);
+        update(props.instpassed);
+        props.setinstpassed("");
+      }else{
+        update(props.instpassed);
+        props.setinstpassed("");
+
+      }
+    }
+  },[props.instpassed]);
+  useEffect(()=>{
+    if (props.issim===""){
+      setSimulationStarted(false);
+      resetToDefaults();
+    }else{
+      resetToDefaults();
+    }
+  },[props.issim])
 
 //   const FCFS_data = [
 //     ["P1", 0, 2],

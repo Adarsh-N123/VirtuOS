@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './SJF.css';
 
-function SJFPreemptive() {
+function SJFPreemptive(props) {
   const initialProgress = 0;
   const initialSimulationStarted = false;
 
@@ -33,6 +33,28 @@ function SJFPreemptive() {
   ]);
 
   let interval;
+  useEffect(()=>{
+    if (props.instpassed!==""){
+      if (simulationStarted===false){
+        resetToDefaults();
+        setSimulationStarted(true);
+        update(props.instpassed);
+        props.setinstpassed("");
+      }else{
+        update(props.instpassed);
+        props.setinstpassed("");
+
+      }
+    }
+  },[props.instpassed]);
+  useEffect(()=>{
+    if (props.issim===""){
+      setSimulationStarted(false);
+      resetToDefaults();
+    }else{
+      resetToDefaults();
+    }
+  },[props.issim])
 
   const update = (option) => {
     const newProcess = {

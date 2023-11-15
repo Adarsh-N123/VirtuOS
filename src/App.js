@@ -17,12 +17,16 @@ import FCFS from './components/simulations/FCFS.js';
 function App() {
   const [isDragging, setIsDragging] = useState(true);
   const [screenopen,setscreenopen] = useState(false);
+  const [issim,setissim] = useState("");
+  const [instpassed,setinstpassed] = useState("");
   const [name,setname] = useState('');
   const [windows,setwindows] = useState([{heading:"Window",state:false,zi:0},{heading:"Help",state:false,zi:0},{heading:"Simulations",state:false,zi:0},{heading:"Preferences",state:false,zi:0},{heading:"Music",state:false,zi:0},{heading:"Pictures",state:false,zi:0},{heading:"Videos",state:false,zi:0},{heading:"Documents",state:false,zi:0},{heading:"Downloads",state:false,zi:0},{heading:"Applications",state:false,zi:0},{heading:"FCFS",state:false,zi:0},{heading:"SJF",state:false,zi:0},{heading:"RR",state:false,zi:0},{heading:"Priority Preemptive",state:false,zi:0},{heading:"Priority Non Preemptive",state:false,zi:0},{heading:"Multi-Level",state:false,zi:0},{heading:"CPU Scheduling",state:false,zi:0},{heading:"Dynamic Storage Allocation",state:false,zi:0},{heading:"First Fit",state:false,zi:0},{heading:"Next Fit",state:false,zi:0},{heading:"Best Fit",state:false,zi:0},{heading:"Worst Fit",state:false,zi:0}]);
   const handleDragStart = () => {
     setIsDragging(true);
   };
   const [terminalz,setterminalz] = useState(0);
+  useEffect(() => {console.log("simulation systems engaged")},[issim]);
+  useEffect(() => {console.log("simulation systems engaged on Instruction")},[instpassed]);
   useEffect(() => {console.log("dragging changed")},[isDragging]);
 
   const handleDragStop = () => {
@@ -69,7 +73,7 @@ function App() {
     <div style={(islocked)?{display:'none'}:{display:'flex',flexDirection:'column',justifyContent:'space-between',alignItems:'center',backgroundImage:`url(${backlock})`,width:'100vw',height:'100vh',backgroundRepeat:'no-repeat',backgroundAttachment:'fixed',backgroundPosition:'center',backgroundSize:'cover'}}>
       <Nav windows={[...windows]} setwindows={setwindows} setscreenopen={setscreenopen} setname={setname} />
       <Body windows={[...windows]} setwindows={setwindows} screenopen={screenopen} setname={setname} setscreenopen={setscreenopen}/>
-      <Taskbar terminalz={terminalz} setterminalz={setterminalz} windows={[...windows]} setwindows={setwindows} />
+      <Taskbar instpassed={instpassed} setinstpassed={setinstpassed} issim={issim} setissim={setissim} terminalz={terminalz} setterminalz={setterminalz} windows={[...windows]} setwindows={setwindows} />
       {/* <div style={{width:'100vw',position:'absolute',top:'0',left:'0',height:'100vh',overflow:'hidden',zIndex:'0'}}> */}
       {
       windows.map((window)=>(
@@ -87,7 +91,7 @@ function App() {
       
       style={(window.state)?{zIndex:`${window.zi}`,backgroundColor:'#202121',borderRadius:'10px'}:{width:'0px',height:'0px',zIndex:'-100',marginTop:'100vh',visibility:'hidden',transition:'all 0.4s ease-in-out'}}
     >
-    <Simulationwindow terminalz={terminalz} screenopen={screenopen} setname={setname} setscreenopen={setscreenopen} isDragging={isDragging} setIsDragging={setIsDragging}  windows={[...windows]} setwindows={setwindows} opt={window}></Simulationwindow>
+    <Simulationwindow instpassed={instpassed} setinstpassed={setinstpassed} issim={issim} setissim={setissim} terminalz={terminalz} screenopen={screenopen} setname={setname} setscreenopen={setscreenopen} isDragging={isDragging} setIsDragging={setIsDragging}  windows={[...windows]} setwindows={setwindows} opt={window}></Simulationwindow>
     </Rnd>
     </div>
       ))
