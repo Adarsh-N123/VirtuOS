@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./bestfit.css"
 
-function Bestfit() {
+function Bestfit(props) {
   const initialProgress = 0;
     const initialSimulationStarted = false;
     const [widths,setwidths] = useState([10,5,7,9,20,11,15,8,10,5]);
@@ -44,6 +44,21 @@ function Bestfit() {
       });
 
     }
+    useEffect(()=>{
+      if (props.instpassed!==""){
+        if (simulationStarted===false){
+          resetToDefaults();
+          manager("start");
+          setSimulationStarted(true);
+          getprogresses(props.instpassed);
+          props.setinstpassed("");
+        }else{
+          getprogresses(props.instpassed);
+          props.setinstpassed("");
+  
+        }
+      }
+    },[props.instpassed]);
     // useEffect(() => {console.log(occupancies);},[occupancies]);
     useEffect(() => {console.log("current memory updated")},[memcurr]);
     useEffect(() => {

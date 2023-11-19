@@ -4,7 +4,7 @@ import './Body.css'
 function Body(props) {
   const folders = ["Music","Pictures","Videos","Documents","Downloads","Applications"]
   const cpualgos = ["FCFS","SJF","RR","Priority Preemptive","Priority Non Preemptive","Multi-Level"];
-  const folds =  [["CPU Scheduling","https://cdn-icons-png.flaticon.com/512/8186/8186331.png"],["Dynamic Storage Allocation","https://prepinstadotcom.s3.ap-south-1.amazonaws.com/wp-content/uploads/2021/10/memory-card.webp"]]
+  const folds =  [["CPU Scheduling","https://cdn-icons-png.flaticon.com/512/8186/8186331.png"],["Dynamic Storage Allocation","https://prepinstadotcom.s3.ap-south-1.amazonaws.com/wp-content/uploads/2021/10/memory-card.webp"],["Producer-Consumer.exe","https://cdn-icons-png.flaticon.com/512/2081/2081930.png"],["Semaphores.exe","https://cdn-icons-png.flaticon.com/512/2200/2200311.png"]]
   const openwindow = (folder) => {
     const updatedWindows = [...props.windows]; // Create a copy of the windows array
     for (let i = 0; i < updatedWindows.length; i++) {

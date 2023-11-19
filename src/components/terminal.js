@@ -7,8 +7,8 @@ function Terminal(props) {
   const [inputValue, setInputValue] = useState('');
   const [terminalart, setTerminalArt] = useState([]);
   const [terminalart2, setTerminalArt2] = useState([]);
-  const paths = ['./home/Dynamic-Storage-Allocation/First-Fit.exe','./home/Dynamic-Storage-Allocation/Next-Fit.exe','./home/Dynamic-Storage-Allocation/Best-Fit.exe','./home/Dynamic-Storage-Allocation/Worst-Fit.exe','./home/CPU-Scheduling/FCFS.exe','./home/CPU-Scheduling/SJF.exe','./home/CPU-Scheduling/RR.exe','./home/CPU-Scheduling/Priority-Preemptive.exe','./home/CPU-Scheduling/Multi-Level.exe'];
-  const windnames = ['First Fit','Next Fit','Best Fit','Worst Fit','FCFS','SJF','RR','Priority Preemptive','Multi-Level'];
+  const paths = ['./home/Dynamic-Storage-Allocation/First-Fit.exe','./home/Dynamic-Storage-Allocation/Next-Fit.exe','./home/Dynamic-Storage-Allocation/Best-Fit.exe','./home/Dynamic-Storage-Allocation/Worst-Fit.exe','./home/CPU-Scheduling/FCFS.exe','./home/CPU-Scheduling/SJF.exe','./home/CPU-Scheduling/RR.exe','./home/CPU-Scheduling/Priority-Preemptive.exe','./home/CPU-Scheduling/Multi-Level.exe','./home/Producer-Consumer.exe','./home/Semaphores.exe'];
+  const windnames = ['First Fit','Next Fit','Best Fit','Worst Fit','FCFS','SJF','RR','Priority Preemptive','Multi-Level','Producer-Consumer.exe','Semaphores.exe'];
   const [isrunningsim,setisrunningsim] = useState("");
 // 
 useEffect(()=>{props.setissim(isrunningsim)},[isrunningsim]);
@@ -55,6 +55,19 @@ const closewindow = (folder) => {
       props.setwindows(updatedWindows);
     }
   };
+  function extractNumber(inputValue) {
+    // Use a regular expression to match the number at the end of the string
+    const match = inputValue.match(/(\d+)$/);
+  
+    // Check if a match is found
+    if (match) {
+      // Extracted number is in match[1]
+      return parseInt(match[1], 10);
+    } else {
+      // No number found at the end of the string
+      return null;
+    }
+  }
 
 // 
   const handleKeyPress = (e) => {
@@ -64,7 +77,7 @@ const closewindow = (folder) => {
             let lastCharacter = inputValue.charAt(inputValue.length - 1);
 
             // Convert the last character to an integer
-            let lastCharacterAsInt = parseInt(lastCharacter, 10);
+            let lastCharacterAsInt = extractNumber(inputValue);
             props.setinstpassed(lastCharacterAsInt);
             setCommands([...commands, inputValue]);
             setInputValue('');
