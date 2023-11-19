@@ -1,0 +1,71 @@
+.dining-container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    height: 50vh;
+    margin-left:200px;
+    margin-top:170px;
+    
+  }
+  
+  .circle-container {
+    display: flex;
+    position: relative;
+  }
+  
+  .circle-item {
+    position: absolute;
+    transform-origin: 50% 50%;
+  }
+  
+  .philosopher-item-1 {
+    transform: rotate(0deg) translate(150px) rotate(0deg);
+  }
+  
+  .philosopher-item-2 {
+    transform: rotate(72deg) translate(150px) rotate(-72deg);
+  }
+  
+  .philosopher-item-3 {
+    transform: rotate(144deg) translate(150px) rotate(-144deg);
+  }
+  
+  .philosopher-item-4 {
+    transform: rotate(216deg) translate(150px) rotate(-216deg);
+  }
+  
+  .philosopher-item-5 {
+    transform: rotate(288deg) translate(150px) rotate(-288deg);
+  }
+  
+  .fork-item-1 {
+    transform: rotate(36deg) translate(120px) rotate(-36deg);
+  }
+  
+  .fork-item-2 {
+    transform: rotate(108deg) translate(120px) rotate(-108deg);
+  }
+  
+  .fork-item-3 {
+    transform: rotate(180deg) translate(120px) rotate(-180deg);
+  }
+  
+  .fork-item-4 {
+    transform: rotate(252deg) translate(120px) rotate(-252deg);
+  }
+  
+  .fork-item-5 {
+    transform: rotate(324deg) translate(120px) rotate(-324deg);
+  }
+  
+  .philosopher-image,
+  .fork-image {
+    width: 50px; /* Adjust the size as needed */
+    height: 50px; /* Adjust the size as needed */
+    /* border-radius: 50%; */
+    /* margin: 10px; Adjust the margin as needed */
+  }
+  
+
+  

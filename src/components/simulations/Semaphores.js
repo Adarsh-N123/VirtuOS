@@ -73,15 +73,15 @@ function Producer() {
     setLogs((prevLogs) => [...prevLogs, message]);
   };
 
-  useEffect(() => {
-    // Log initial state
-    addToLogs(`Initial state: Count: ${count}, RegisterP: ${registerP}, RegisterC: ${registerC}`);
+//   useEffect(() => {
+//     // Log initial state
+//     addToLogs(`Initial state: Count: ${count}, RegisterP: ${registerP}, RegisterC: ${registerC}`);
 
-    // Simulate initial context switch from Producer to Consumer
-    setTimeout(() => {
-      consumeItem();
-    }, getRandomDuration() * 1000);
-  }, []);
+//     // Simulate initial context switch from Producer to Consumer
+//     setTimeout(() => {
+//       consumeItem();
+//     }, getRandomDuration() * 1000);
+//   }, []);
 
   useEffect(() => {
     // Log state after each context switch
