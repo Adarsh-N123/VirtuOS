@@ -14,10 +14,16 @@ import Worstfit from './simulations/Worstfit';
 import Semaphores from './simulations/Semaphores';
 import Dining from './simulations/Dining';
 import IRRVQ from './simulations/IRRVQ';
-
+import FIFO from './simulations/FIFO';
+import LRU from './simulations/LRU';
+import MRU from './simulations/MRU';
+import OPTIMAL from './simulations/OPTIMAL';
+// ["IRRVQ","https://www.svgrepo.com/show/375384/cloud-scheduler.svg"]
+// ["IRRVQ","https://www.svgrepo.com/show/375384/cloud-scheduler.svg"]
 function Simulationwindow(props) {
-  const cpualgos = [["FCFS","https://www.dlf.pt/dfpng/middlepng/437-4370737_cloud-queue-logo-message-queue-icon-hd-png.png"],["SJF","https://cdn-icons-png.flaticon.com/512/2369/2369541.png"],["RR","https://cdn-icons-png.flaticon.com/512/1583/1583264.png"],["Priority Preemptive","https://cdn-icons-png.flaticon.com/512/477/477439.png"],["IRRVQ","https://www.svgrepo.com/show/375384/cloud-scheduler.svg"]];
+  const cpualgos = [["FCFS","https://www.dlf.pt/dfpng/middlepng/437-4370737_cloud-queue-logo-message-queue-icon-hd-png.png"],["SJF","https://cdn-icons-png.flaticon.com/512/2369/2369541.png"],["RR","https://cdn-icons-png.flaticon.com/512/1583/1583264.png"],["Priority Preemptive","https://cdn-icons-png.flaticon.com/512/477/477439.png"]];
   const dynamic_storage = [["First Fit","https://cdn-icons-png.flaticon.com/512/1021/1021080.png"],["Next Fit","https://prepinsta.com/wp-content/uploads/2023/07/Next-Fit-Algorithm-in-Operating-System-OS-Program.webp"],["Best Fit","https://cdn0.iconfinder.com/data/icons/stem-science-technology-engineering-math-educati-1/64/provider-solution-puzzle-missing-piece-512.png"],["Worst Fit","https://cdn1.iconfinder.com/data/icons/business-934/32/business-27-512.png"]];
+  const page_replacement = [["FIFO","https://cdn-icons-png.flaticon.com/512/3575/3575759.png"],["LRU","https://prepinstadotcom.s3.ap-south-1.amazonaws.com/wp-content/uploads/2022/03/files.png"],["MRU","https://cdn-icons-png.flaticon.com/512/4408/4408036.png"]];
   const openwindow = (folder) => {
     const updatedWindows = [...props.windows]; // Create a copy of the windows array
     for (let i = 0; i < updatedWindows.length; i++) {
@@ -96,6 +102,10 @@ function Simulationwindow(props) {
       {props.opt.heading === "RR" &&<RoundRobin issim={props.issim} setissim={props.setissim} instpassed={props.instpassed} setinstpassed={props.setinstpassed}/>}
       {props.opt.heading === "Priority Preemptive" &&<Priority issim={props.issim} setissim={props.setissim} instpassed={props.instpassed} setinstpassed={props.setinstpassed}/>}
       {props.opt.heading === "IRRVQ" &&<IRRVQ issim={props.issim} setissim={props.setissim} instpassed={props.instpassed} setinstpassed={props.setinstpassed}/>}
+      {props.opt.heading === "FIFO" &&<FIFO issim={props.issim} setissim={props.setissim} instpassed={props.instpassed} setinstpassed={props.setinstpassed}/>}
+      {props.opt.heading === "LRU" &&<LRU issim={props.issim} setissim={props.setissim} instpassed={props.instpassed} setinstpassed={props.setinstpassed}/>}
+      {props.opt.heading === "MRU" &&<MRU issim={props.issim} setissim={props.setissim} instpassed={props.instpassed} setinstpassed={props.setinstpassed}/>}
+      {props.opt.heading === "Optimal" &&<OPTIMAL issim={props.issim} setissim={props.setissim} instpassed={props.instpassed} setinstpassed={props.setinstpassed}/>}
       {props.opt.heading === "First Fit" && <Firstfit issim={props.issim} setissim={props.setissim} instpassed={props.instpassed} setinstpassed={props.setinstpassed}/>}
       {props.opt.heading === "Next Fit" &&<Nextfit issim={props.issim} setissim={props.setissim} instpassed={props.instpassed} setinstpassed={props.setinstpassed}/>}
       {props.opt.heading === "Best Fit" &&<Bestfit issim={props.issim} setissim={props.setissim} instpassed={props.instpassed} setinstpassed={props.setinstpassed}/>}
@@ -113,6 +123,14 @@ function Simulationwindow(props) {
           </div>}
       {props.opt.heading === "Dynamic Storage Allocation" && <div style={{width:'90%',display:'flex',flexWrap:'wrap',alignItems:'center',justifyContent:'left'}}>
       {dynamic_storage.map((folder) => (
+                <div key={folder.toString()} className='folder' style={{marginLeft:'30px'}}>
+                  <img src={folder[1]} onClick={()=>{openwindow(folder[0])}} style={{width:'70px',height:'70px',margin:'20px',borderRadius:'10%'}}></img>
+                  <center><h3 style={{color:'white',fontSize:'10px',marginTop:'-14px',width:'80px'}} className='folder-name'>{folder[0]+".exe"}</h3></center>
+                </div>
+            ))}
+          </div>}
+      {props.opt.heading === "Page-Replacement" && <div style={{width:'90%',display:'flex',flexWrap:'wrap',alignItems:'center',justifyContent:'left'}}>
+      {page_replacement.map((folder) => (
                 <div key={folder.toString()} className='folder' style={{marginLeft:'30px'}}>
                   <img src={folder[1]} onClick={()=>{openwindow(folder[0])}} style={{width:'70px',height:'70px',margin:'20px',borderRadius:'10%'}}></img>
                   <center><h3 style={{color:'white',fontSize:'10px',marginTop:'-14px',width:'80px'}} className='folder-name'>{folder[0]+".exe"}</h3></center>

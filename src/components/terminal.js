@@ -7,8 +7,8 @@ function Terminal(props) {
   const [inputValue, setInputValue] = useState('');
   const [terminalart, setTerminalArt] = useState([]);
   const [terminalart2, setTerminalArt2] = useState([]);
-  const paths = ['./home/Dynamic-Storage-Allocation/First-Fit.exe','./home/Dynamic-Storage-Allocation/Next-Fit.exe','./home/Dynamic-Storage-Allocation/Best-Fit.exe','./home/Dynamic-Storage-Allocation/Worst-Fit.exe','./home/CPU-Scheduling/FCFS.exe','./home/CPU-Scheduling/SJF.exe','./home/CPU-Scheduling/RR.exe','./home/CPU-Scheduling/Priority-Preemptive.exe','./home/CPU-Scheduling/IRRVQ.exe','./home/Producer-Consumer.exe','./home/Semaphores.exe','./home/Dining-Philosophers.exe'];
-  const windnames = ['First Fit','Next Fit','Best Fit','Worst Fit','FCFS','SJF','RR','Priority Preemptive','IRRVQ','Producer-Consumer.exe','Semaphores.exe','Dining-Philosophers.exe'];
+  const paths = ['./home/Dynamic-Storage-Allocation/First-Fit.exe','./home/Dynamic-Storage-Allocation/Next-Fit.exe','./home/Dynamic-Storage-Allocation/Best-Fit.exe','./home/Dynamic-Storage-Allocation/Worst-Fit.exe','./home/CPU-Scheduling/FCFS.exe','./home/CPU-Scheduling/SJF.exe','./home/CPU-Scheduling/RR.exe','./home/CPU-Scheduling/Priority-Preemptive.exe','./home/CPU-Scheduling/IRRVQ.exe','./home/Producer-Consumer.exe','./home/Semaphores.exe','./home/Dining-Philosophers.exe','./home/Page-Replacement/FIFO.exe','./home/Page-Replacement/LRU.exe','./home/Page-Replacement/MRU.exe','./home/Page-Replacement/Optimal.exe'];
+  const windnames = ['First Fit','Next Fit','Best Fit','Worst Fit','FCFS','SJF','RR','Priority Preemptive','IRRVQ','Producer-Consumer.exe','Semaphores.exe','Dining-Philosophers.exe','FIFO','LRU','MRU','Optimal'];
   const [isrunningsim,setisrunningsim] = useState("");
 // 
 useEffect(()=>{props.setissim(isrunningsim)},[isrunningsim]);

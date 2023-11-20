@@ -2,7 +2,7 @@ import React from 'react'
 import './Body.css'
 
 function Body(props) {
-  const folders = ["Music","Pictures","Videos","Documents","Downloads","Applications"]
+  const folders = ["Music","Pictures","Videos","Documents","Page-Replacement","Applications"]
   const cpualgos = ["FCFS","SJF","RR","Priority Preemptive","Priority Non Preemptive","IRRVQ"];
   const folds =  [["CPU Scheduling","https://cdn-icons-png.flaticon.com/512/8186/8186331.png"],["Dynamic Storage Allocation","https://prepinstadotcom.s3.ap-south-1.amazonaws.com/wp-content/uploads/2021/10/memory-card.webp"],["Producer-Consumer.exe","https://cdn-icons-png.flaticon.com/512/2081/2081930.png"],["Semaphores.exe","https://cdn-icons-png.flaticon.com/512/2200/2200311.png"],["Dining-Philosophers.exe","https://prepinsta.com/wp-content/uploads/2023/01/Dining-Philosophers-in-Operating-System-.webp"]]
   const openwindow = (folder) => {
@@ -42,11 +42,17 @@ function Body(props) {
     <div className='body' style={{overflow:'hidden'}}>
       <div>
       {folders.map((folder) => (
-                <div key={folder.toString()} className='folder'>
-                  <img src='https://images.squarespace-cdn.com/content/v1/500bd3ece4b0d820d6a34677/1356128939263-3N3I8PWSXT4EH3NROIKG/purple-folder-icon.png' onClick={()=>{openwindow(folder)}} style={{width:'70px',margin:'20px'}}></img>
-                  <h3 style={{color:'white',fontSize:'13px',marginTop:'-24px'}} className='folder-name'>{folder}</h3>
-                </div>
-            ))}
+  <div key={folder.toString()} className='folder'>
+    <img
+      src={folder === 'Page-Replacement' ? 'https://prepinsta.com/wp-content/uploads/2023/06/LRU-Page-Replacement-Algorithm-in-C.webp' : 'https://images.squarespace-cdn.com/content/v1/500bd3ece4b0d820d6a34677/1356128939263-3N3I8PWSXT4EH3NROIKG/purple-folder-icon.png'}
+      onClick={() => { openwindow(folder) }}
+      style={(folder==="Page-Replacement")?{width:'60px',margin:'20px',marginTop:'14px'}:{ width: '70px', margin: '20px' }}
+      alt='Folder Icon'
+    />
+    <h3 style={(folder==="Page-Replacement")?{ color: 'white', fontSize: '10px', marginTop: '-14px' }:{ color: 'white', fontSize: '13px', marginTop: '-24px' }} className='folder-name'>{folder}</h3>
+  </div>
+))}
+
           </div>
       <div>
       {folds.map((folder) => (

@@ -1,0 +1,33 @@
+/* LRU.css */
+
+.lru-container {
+    margin: 20px;
+  }
+  
+  .button-container {
+    margin-bottom: 10px;
+  }
+  
+  .simulation-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .pages,
+  .page-frames {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .page,
+  .frame {
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .stats-container {
+    margin-top: 10px;
+  }
+  
